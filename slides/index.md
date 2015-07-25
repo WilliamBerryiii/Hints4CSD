@@ -8,11 +8,15 @@
 
 &nbsp;
 
+' -2 take ways
+' -Learn something, take tonight as an infection and spread it at work
+' -We finish up & know all this. Explain why 30 years later still have these issues
+' -Where are the abstractions? 
+' -Non-breaking (cant wrap), non-collapsing
+' -Sans Serif - Droid Sans Mono by Steve Matteson - consolas,monospace
+
 ***
 "Design is not what it looks like and feels like. Design is how it works." - Steve Jobs
-
----
-"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson
 
 ---
 "Science is about knowing; engineering is about doing." - Henry Petroski
@@ -21,7 +25,10 @@
 "The walls between art and engineering exist only in our minds" - Theo Jansen
 
 ---
-"Of course the goals are in conflict, and engineering is the art of making tradeoffs, for instance among features, speed, cost, dependability, and time to market." - Butler Lampson
+"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson
+
+---
+"[requirements, architecture, process, techniques]. Of course the goals are in conflict, and engineering is the art of making tradeoffs, for instance among features, speed, cost, dependability, and time to market." - Butler Lampson
 
 ***
 Hints <span style="font-size:60%">For</span> Computer System Design
@@ -52,6 +59,8 @@ Compaq - IBM clone
 Gavilan SC - "Laptop" 
 </div>
 
+' Compaq 53,000 PCs $111M first year sales same year went public 2nd year in biz
+
 ---
 <div>
 
@@ -76,10 +85,10 @@ Gavilan SC - "Laptop"
 ---
 ###Industry Status - Software/Networking
 <div class="fragment">
-Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word
+Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word - GNU
 </div>
 <div class="fragment">
-DNS - GNU - IEEE 802.3 - Physical Ethernet - MIDI 
+DNS - IEEE 802.3 - Physical Ethernet - MIDI 
 </div>
 
 ' Visicalc '79 - Xerox Star '81
@@ -113,6 +122,9 @@ Fault Tolerance
 
 ---
 ### End-to-End
+Reliability comes with Error Handling
+
+' Commented at application level which raises the question of who is the user? (APIs, Trading systems, etc.)
 
 ---
 ### Log Updates
@@ -158,7 +170,10 @@ Speed
 ### Safety First
 
 ---
-### Shed Load
+### Floatsam & Jetsam
+
+' Load Shedding 
+' Packet Loss - the erlang
 
 <!---
 ****
@@ -185,4 +200,5 @@ Functionality
 ###Making Implementations Work
 
 ***
-
+-Fin-
+===
