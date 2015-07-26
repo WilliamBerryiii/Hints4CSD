@@ -53,6 +53,15 @@
 
 <p>&amp;nbsp;</p>
 
+<aside class="notes">
+-2 take ways<br/>
+-Learn something, take tonight as an infection and spread it at work<br/>
+-We finish up & know all this. Explain why 30 years later still have these issues<br/>
+-Where are the abstractions? <br/>
+-Non-breaking (cant wrap), non-collapsing<br/>
+-Sans Serif - Droid Sans Mono by Steve Matteson - consolas,monospace<br/>
+</aside>
+
 </section>
 
 <section >
@@ -60,12 +69,6 @@
 <section >
 
 <p>"Design is not what it looks like and feels like. Design is how it works." - Steve Jobs</p>
-
-</section>
-
-<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
-
-<p>"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson</p>
 
 </section>
 
@@ -83,7 +86,13 @@
 
 <section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
 
-<p>"Of course the goals are in conflict, and engineering is the art of making tradeoffs, for instance among features, speed, cost, dependability, and time to market." - Butler Lampson</p>
+<p>"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson</p>
+
+</section>
+
+<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+
+<p>"[requirements, architecture, process, techniques]. Of course the goals are in conflict, and engineering is the art of making tradeoffs, for instance among features, speed, cost, dependability, and time to market." - Butler Lampson</p>
 
 </section>
 
@@ -120,15 +129,15 @@ top down approach<br/>
 
 <h3>Industry Status - Hardware</h3>
 
-<div class="fragment">
-Apple - Lisa
-</div>
-<div class="fragment">
-Compaq - IBM clone
-</div>
-<div class="fragment">
+<div class="fragment" style="list-style-type: none;">
+Apple - Lisa<br />
+Compaq - IBM clone<br />
 Gavilan SC - "Laptop" 
 </div>
+
+<aside class="notes">
+Compaq 53,000 PCs $111M first year sales same year went public 2nd year in biz<br/>
+</aside>
 
 </section>
 
@@ -160,10 +169,10 @@ Gavilan SC - "Laptop"
 <h3>Industry Status - Software/Networking</h3>
 
 <div class="fragment">
-Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word
+Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word - GNU
 </div>
 <div class="fragment">
-DNS - GNU - IEEE 802.3 - Physical Ethernet - MIDI 
+DNS - IEEE 802.3 - Physical Ethernet - MIDI 
 </div>
 
 <p><aside class="notes">
@@ -191,6 +200,7 @@ Fault Tolerance -> Speed -> Functionality
 <aside class="notes">
 and this is now<br/>
 start low level and build toward meta<br/>
+paper talked about disk, memory, low level - keep in mind we've raised abstractions<br/>
 </aside>
 
 <!---
@@ -214,6 +224,12 @@ start low level and build toward meta<br/>
 <section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
 
 <h3>End-to-End</h3>
+
+<p>Reliability comes with Error Handling</p>
+
+<aside class="notes">
+Commented at application level which raises the question of who is the user? (APIs, Trading systems, etc.)<br/>
+</aside>
 
 </section>
 
@@ -251,11 +267,21 @@ start low level and build toward meta<br/>
 
 <h3>Split Resources</h3>
 
+<aside class="notes">
+when this was written it was about memory and disk<br/>
+some times is faster to keep dedicated resources than shared, disk is cheap<br/>
+eg. no-sql, where we keep dedicated projections based on the questions of the application<br/>
+</aside>
+
 </section>
 
 <section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
 
 <h3>Use Static Analysis</h3>
+
+<aside class="notes">
+that's it. just use it. <br/>
+</aside>
 
 </section>
 
@@ -295,7 +321,12 @@ start low level and build toward meta<br/>
 
 <section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
 
-<h3>Shed Load</h3>
+<h3>Floatsam &amp; Jetsam</h3>
+
+<aside class="notes">
+Load Shedding <br/>
+Packet Loss - the erlang<br/>
+</aside>
 
 <!---
 ****
@@ -311,35 +342,92 @@ start low level and build toward meta<br/>
 
 <section >
 
-<section >
-
 <h1>Functionality</h1>
 
 </section>
 
-<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+<section >
 
 <h3>KIS(S)</h3>
 
+<p>Do one thing really well
+Interfaces capture minimum requirements of an abstraction
+Don't generalize, generalizations are generally wrong</p>
+
+<aside class="notes">
+think about interfaces at each intersection of interaction <br/>
+field/property -> method -> object -> factory -> controller -> service -> website -> user<br/>
+unintended consequences, login interface accidentally reveal user emails <br/>
+</aside>
+
 </section>
 
-<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+<section >
+
+<section >
 
 <h3>Corollaries</h3>
 
+<p>Build basic interfaces that are blazing fast
+How do we know it's fast? Telemetry &amp; Logging
+"... it is normal for 80% of the time to be spent in 20% of the code, but a priori analysis or intuition usually can’t find the 20% with any certainty." - Lampson</p>
+
+<aside class="notes">
+OData vs WebAPI<br/>
+</aside>
+
 </section>
 
 <section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+
+<h3>Procedure Arguments</h3>
+
+<p>Sort, Filter, Select</p>
+
+<aside class="notes">
+have interface take in a func rather than discrete methods, or special patterning<br/>
+</aside>
+
+</section>
+
+<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+
+<h3>Make the Client Pay</h3>
+
+<p>Unix streaming/piping</p>
+
+<aside class="notes">
+write lots of little programs and compose the parts you need <br/>
+flexibility, extensibility<br/>
+</aside>
+
+</section>
+
+</section>
+
+<section >
 
 <h3>Continuity</h3>
 
+<p>Keep basic interfaces stable 
+"When a system grows to more than 250K lines of code the amount of change becomes intolerable; even when there is no doubt about what has to be done, it takes too long to do it. There is no choice but to break the system into smaller pieces related only by interfaces that are stable for years."</p>
+
+<p>Keep a place to stand
+<aside class="notes">
+Microservices?<br/>
+</aside></p>
+
 </section>
 
-<section author="William Berry" description="While technologies, methodologies and abstractions have waxed and waned over the years, Butler Lampson’s ‘Hints for Computer Systems Design’ remains relevant to the current challenges faced in hardware and software  systems engineering.  Drawing against the backdrop of current development practices, we will discuss how Lampson’s hints can still be used, some thirty years later, to implement functionally accurate, high-performing fault-tolerant software systems." theme="moon" title="Hints for Computer System Design" transition="default">
+<section >
 
 <h3>Making Implementations Work</h3>
 
 </section>
+
+<section >
+
+<h1>-Fin-</h1>
 
 </section>
 
