@@ -49,13 +49,9 @@ Functionality -> Speed -> Fault Tolerance
 
 ---
 ###Industry Status - Hardware
-<div class="fragment">
-Apple - Lisa
-</div>
-<div class="fragment">
-Compaq - IBM clone
-</div>
-<div class="fragment">
+<div class="fragment" style="list-style-type: none;">
+Apple - Lisa<br />
+Compaq - IBM clone<br />
 Gavilan SC - "Laptop" 
 </div>
 
@@ -107,6 +103,7 @@ Fault Tolerance -> Speed -> Functionality
 </div>
 ' and this is now
 ' start low level and build toward meta
+' paper talked about disk, memory, low level - keep in mind we've raised abstractions
 
 <!---
 ****
@@ -147,11 +144,19 @@ Speed
 ---
 ### Split Resources
 
+' when this was written it was about memory and disk
+' some times is faster to keep dedicated resources than shared, disk is cheap
+' eg. no-sql, where we keep dedicated projections based on the questions of the application
+
 ---
 ### Use Static Analysis 
 
+' that's it. just use it. 
+
 ---
 ### Cache Answers 
+
+
 
 --- 
 ### What's the correct amount of RAM for my SQL box?
@@ -187,17 +192,50 @@ Speed
 Functionality
 ========
 
----
+***
 ###KIS(S)
+Do one thing really well
+Interfaces capture minimum requirements of an abstraction
+Don't generalize, generalizations are generally wrong
 
----
+' think about interfaces at each intersection of interaction 
+' field/property -> method -> object -> factory -> controller -> service -> website -> user
+' unintended consequences, login interface accidentally reveal user emails 
+
+***
 ###Corollaries
+Build basic interfaces that are blazing fast
+How do we know it's fast? Telemetry & Logging
+"... it is normal for 80% of the time to be spent in 20% of the code, but a priori analysis or intuition usually can’t find the 20% with any certainty." - Lampson
+
+' OData vs WebAPI
 
 ---
+###Procedure Arguments 
+Sort, Filter, Select
+
+' have interface take in a func rather than discrete methods, or special patterning
+
+---
+### Make the Client Pay
+Unix streaming/piping
+
+' write lots of little programs and compose the parts you need 
+' flexibility, extensibility
+
+***
 ###Continuity
+Keep basic interfaces stable 
+"When a system grows to more than 250K lines of code the amount of change becomes intolerable; even when there is no doubt about what has to be done, it takes too long to do it. There is no choice but to break the system into smaller pieces related only by interfaces that are stable for years."
 
----
+Keep a place to stand
+' Microservices?
+
+
+***
 ###Making Implementations Work
+
+
 
 ***
 -Fin-
