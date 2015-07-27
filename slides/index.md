@@ -12,20 +12,21 @@
 ' -Learn something, take tonight as an infection and spread it at work
 ' -We finish up & know all this. Explain why 30 years later still have these issues
 ' -Where are the abstractions? 
+' break
 ' -Non-breaking (cant wrap), non-collapsing
 ' -Sans Serif - Droid Sans Mono by Steve Matteson - consolas,monospace
 
 ***
-"Design is not what it looks like and feels like. Design is how it works." - Steve Jobs
-
----
 "Science is about knowing; engineering is about doing." - Henry Petroski
 
 ---
-"The walls between art and engineering exist only in our minds" - Theo Jansen
+"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson
 
 ---
-"A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson
+"Design is not what it looks like and feels like. Design is how it works." - Steve Jobs
+
+---
+"The walls between art and engineering exist only in our minds" - Theo Jansen
 
 ---
 "[requirements, architecture, process, techniques]. Of course the goals are in conflict, and engineering is the art of making tradeoffs, for instance among features, speed, cost, dependability, and time to market." - Butler Lampson
@@ -36,7 +37,8 @@ Hints <span style="font-size:60%">For</span> Computer System Design
 ######- Butler Lampson (1983) -
 
 <div class="fragment">
-... or how to engineer less sucky systems
+Or ... <br />
+How to Engineer Less Sucky Systems
 </div>
 
 ***
@@ -45,16 +47,18 @@ Hardware | Software
 <div class="fragment">
 Functionality -> Speed -> Fault Tolerance 
 </div>
+
 ' top down approach
 
 ---
-###Industry Status - Hardware
+###Industry Status - Hardware (1983)
 <div class="fragment" style="list-style-type: none;">
 Apple - Lisa<br />
 Compaq - IBM clone<br />
 Gavilan SC - "Laptop" 
 </div>
 
+' the year of ubiquitous compute 
 ' Compaq 53,000 PCs $111M first year sales same year went public 2nd year in biz
 
 ---
@@ -84,23 +88,24 @@ Gavilan SC - "Laptop"
 Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word - GNU
 </div>
 <div class="fragment">
-DNS - IEEE 802.3 - Physical Ethernet - MIDI 
+DNS - IEEE 802.3 - MIDI 
 </div>
 
 ' Visicalc '79 - Xerox Star '81
 ' DNS by Paul Mockapetris @ UCI 
 ' Stallman GNU announced, did not start till 1984
-' IEEE 802.3 was approved as a standard
+' IEEE 802.3 Physical Ethernet was approved as a standard
 ' Mouse, Full Size Monitor, laser printer, 2 phase commit, ethernet
 
 ***
-###But That Was Then ...
+Road Map:
 <div class="fragment">
 Hardware | Software | Peopleware
 </div>
 <div class="fragment">
 Fault Tolerance -> Speed -> Functionality
 </div>
+
 ' and this is now
 ' start low level and build toward meta
 ' paper talked about disk, memory, low level - keep in mind we've raised abstractions
@@ -117,17 +122,36 @@ Fault Tolerance -> Speed -> Functionality
 Fault Tolerance
 ==========
 
----
-### End-to-End
+***
+###End-to-End Error Handling
 Reliability comes with Error Handling
 
+' Reliability is not difficult, retrofitting is.	
 ' Commented at application level which raises the question of who is the user? (APIs, Trading systems, etc.)
+' Checking that an address is unused before assigning is about performance not correctness
+' Using only end to end does lead directly to performance issues.
+' think about off line API
 
----
-### Log Updates
+***
+###Log Updates
+Functional, Immutable, Captured State, 
 
----
-### Transactions
+' In memory, forced to disk, ensure its valid when flushed
+' used all over the place, file systems, databases
+' not all objects immutable so object versioning
+' Bravo editor 2 update functions - Replace, Change (store version)
+
+***
+###Transactions
+Make actions atomic or restartable.
+
+' Transactions
+' Abstractions raised, same problems just higher up the stack. 
+' Idempotent 
+' Grapevine email system uses itself to send around logged data with timestamps
+' Eventually all the systems are updated and last one wins - remind you of other consensus?
+' WAL vs Shadow paging - WAL in place using a log, shadow writes a whole new page then updates all refs.
+
 
 <!---
 ****
@@ -156,7 +180,12 @@ Speed
 ---
 ### Cache Answers 
 
+' Memoization, partial vs full cache, distinct from buffering 
+' TTL vs data integrity/accuracy 
+' Caching cache misses story
 
+---
+### Hinting for Performance 
 
 --- 
 ### What's the correct amount of RAM for my SQL box?
@@ -165,20 +194,29 @@ Speed
 <span style="font-size:600%;font-weight:bold;">MORE</span>
 </div>
 
----
-### Background Workers
+' point here is that cleverness can be easily surpassed by simple brute force. 
+' tune sql and the queries or just have IT load more ram. 
+' take that to algorithm design
 
 ---
-### Batch Processing
+### Background Workers & Batch Processing
+
+' Lambda Architecture Batch and Speed Layers 
 
 ---
 ### Safety First
+Trade perfection for the avoidance of disaster.
+
+' especially in the case of unknown loading 
 
 ---
 ### Floatsam & Jetsam
 
+<div class="fragment">
+<img src="images/boat.jpg" alt="Drunk Boat" style="background-color: #fff;height:500px;width:650px;" />
+</div>
+
 ' Load Shedding 
-' Packet Loss - the erlang
 
 <!---
 ****
@@ -235,6 +273,34 @@ Keep a place to stand
 ***
 ###Making Implementations Work
 
+---
+### Plan to throw one away 
+
+' If there is anything new about the function of a system the first implementation will have to be redone complete to achieve satisfactory results.
+' prototype, prototype, prototype
+
+---
+### Keep Secrets 
+
+' Change should be hidden behind interface.
+' Hiding can lead to decreased performance 
+
+---
+###Divide and Conquer 
+
+' split up complex problems and reduce
+' or bit off as much as you can possibly chew and wait for the next round
+
+---
+###Use a Good Idea Again
+
+' If the abstractions are good use them over again.
+
+***
+Handling All the Cases
+
+---
+###Separate Normal & Worst Cases 
 
 
 ***
