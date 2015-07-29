@@ -109,7 +109,7 @@ Fault Tolerance
 ***
 ###End-to-End Error Handling
 Reliability comes with Error Handling<br />
-Reliability is not difficult, retrofitting is.<br />
+Reliability is not difficult, retrofitting is<br />
 Trade perfection for disaster mitigation<br />
 
 ' Reliability is not difficult, retrofitting is.	
@@ -261,3 +261,4 @@ Handle all cases, split good & bad<br />
 <br />
 @williamberryiii
 https://github.com/WilliamBerryiii/Hints4CSD
+https://williamberryiii.github.io/Hints4CSD
