@@ -5,22 +5,12 @@
 - transition : default
 
 ***
-
-&nbsp;
-
-' -2 take ways
-' -Learn something, take tonight as an infection and spread it at work
-' -We finish up & know all this. Explain why 30 years later still have these issues
-' -Where are the abstractions? 
-' break
-' -Non-breaking (cant wrap), non-collapsing
-' -Sans Serif - Droid Sans Mono by Steve Matteson - consolas,monospace
-
-***
 "Science is about knowing; engineering is about doing." - Henry Petroski
 
 ---
 "A good scientist is a person with original ideas. A good engineer is a person who makes a design that works with as few original ideas as possible." - Freeman Dyson
+
+' the physicist/mathematician, no relation to the vacuum cleaners 
 
 ---
 "Design is not what it looks like and feels like. Design is how it works." - Steve Jobs
@@ -41,16 +31,13 @@ Or ... <br />
 How to Engineer Less Sucky Systems
 </div>
 
+' -2 take ways
+' -Learn something, take tonight as an infection and spread it at work
+' -We finish up & know all this. Explain why 30 years later 
+' after time piled on abstractions, languages, architectures, technologies 
+' there is still a timelessness to this work? 
+
 ***
-Hardware | Software	
-
-<div class="fragment">
-Functionality -> Speed -> Fault Tolerance 
-</div>
-
-' top down approach
-
----
 ###Industry Status - Hardware (1983)
 <div class="fragment" style="list-style-type: none;">
 Apple - Lisa<br />
@@ -85,7 +72,7 @@ Gavilan SC - "Laptop"
 ---
 ###Industry Status - Software/Networking
 <div class="fragment">
-Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word - GNU
+Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word
 </div>
 <div class="fragment">
 DNS - IEEE 802.3 - MIDI 
@@ -93,22 +80,19 @@ DNS - IEEE 802.3 - MIDI
 
 ' Visicalc '79 - Xerox Star '81
 ' DNS by Paul Mockapetris @ UCI 
-' Stallman GNU announced, did not start till 1984
 ' IEEE 802.3 Physical Ethernet was approved as a standard
-' Mouse, Full Size Monitor, laser printer, 2 phase commit, ethernet
 
 ***
 Road Map:
 <div class="fragment">
-Hardware | Software | Peopleware
-</div>
-<div class="fragment">
 Fault Tolerance -> Speed -> Functionality
 </div>
+<div class="fragment">
+APIs! 
+</div>
 
-' and this is now
-' start low level and build toward meta
-' paper talked about disk, memory, low level - keep in mind we've raised abstractions
+' abstractions have been raised over the years
+' processors -> memory/disk -> apps
 
 <!---
 ****
@@ -124,17 +108,20 @@ Fault Tolerance
 
 ***
 ###End-to-End Error Handling
-Reliability comes with Error Handling
+Reliability comes with Error Handling<br />
+Reliability is not difficult, retrofitting is.<br />
+Trade perfection for disaster mitigation<br />
 
 ' Reliability is not difficult, retrofitting is.	
 ' Commented at application level which raises the question of who is the user? (APIs, Trading systems, etc.)
-' Checking that an address is unused before assigning is about performance not correctness
-' Using only end to end does lead directly to performance issues.
-' think about off line API
+' Error handling between source and destination is about performance 
+' End to end does lead directly to performance issues.
 
 ***
-###Log Updates
-Functional, Immutable, Captured State, 
+###Loggin'
+Functional<br /> 
+Immutable<br /> 
+Captured State
 
 ' In memory, forced to disk, ensure its valid when flushed
 ' used all over the place, file systems, databases
@@ -143,13 +130,11 @@ Functional, Immutable, Captured State,
 
 ***
 ###Transactions
-Make actions atomic or restartable.
+Make actions atomic or restartable.<br />
+Idempotent  
 
 ' Transactions
-' Abstractions raised, same problems just higher up the stack. 
 ' Idempotent 
-' Grapevine email system uses itself to send around logged data with timestamps
-' Eventually all the systems are updated and last one wins - remind you of other consensus?
 ' WAL vs Shadow paging - WAL in place using a log, shadow writes a whole new page then updates all refs.
 
 
@@ -180,12 +165,7 @@ Speed
 ---
 ### Cache Answers 
 
-' Memoization, partial vs full cache, distinct from buffering 
-' TTL vs data integrity/accuracy 
 ' Caching cache misses story
-
----
-### Hinting for Performance 
 
 --- 
 ### What's the correct amount of RAM for my SQL box?
@@ -196,18 +176,11 @@ Speed
 
 ' point here is that cleverness can be easily surpassed by simple brute force. 
 ' tune sql and the queries or just have IT load more ram. 
-' take that to algorithm design
 
 ---
 ### Background Workers & Batch Processing
 
 ' Lambda Architecture Batch and Speed Layers 
-
----
-### Safety First
-Trade perfection for the avoidance of disaster.
-
-' especially in the case of unknown loading 
 
 ---
 ### Floatsam & Jetsam
@@ -232,9 +205,9 @@ Functionality
 
 ***
 ###KIS(S)
-Do one thing really well
-Interfaces capture minimum requirements of an abstraction
-Don't generalize, generalizations are generally wrong
+Do one thing really well<br />
+Interfaces capture minimum requirements of an abstraction<br />
+Don't generalize, generalizations are generally wrong<br />
 
 ' think about interfaces at each intersection of interaction 
 ' field/property -> method -> object -> factory -> controller -> service -> website -> user
@@ -242,67 +215,49 @@ Don't generalize, generalizations are generally wrong
 
 ***
 ###Corollaries
-Build basic interfaces that are blazing fast
-How do we know it's fast? Telemetry & Logging
-"... it is normal for 80% of the time to be spent in 20% of the code, but a priori analysis or intuition usually can’t find the 20% with any certainty." - Lampson
+Build basic interfaces that are blazing fast<br />
+How do we know it's fast? Telemetry & Logging<br />
+"... it is normal for 80% of the time to be spent in 20% of the code, but a priori analysis or intuition usually can’t find the 20% with any certainty." - Lampson<br />
 
 ' OData vs WebAPI
 
----
-###Procedure Arguments 
-Sort, Filter, Select
-
-' have interface take in a func rather than discrete methods, or special patterning
-
----
-### Make the Client Pay
-Unix streaming/piping
+***
+###Composability & Continuity
+Keep basic interfaces stable<br />
+Keep a place to stand<br />
 
 ' write lots of little programs and compose the parts you need 
 ' flexibility, extensibility
-
-***
-###Continuity
-Keep basic interfaces stable 
-"When a system grows to more than 250K lines of code the amount of change becomes intolerable; even when there is no doubt about what has to be done, it takes too long to do it. There is no choice but to break the system into smaller pieces related only by interfaces that are stable for years."
-
-Keep a place to stand
 ' Microservices?
+' TimeZone 2007 Microsoft
 
 
 ***
 ###Making Implementations Work
+Plan to throw one away<br />
+Keep Secrets <br />
+Divide and Conquer<br />
+Use a Good Idea Again <br />
+Handle all cases, split good & bad<br />
 
----
-### Plan to throw one away 
-
-' If there is anything new about the function of a system the first implementation will have to be redone complete to achieve satisfactory results.
-' prototype, prototype, prototype
-
----
-### Keep Secrets 
-
+' prototype - you will get it wrong
 ' Change should be hidden behind interface.
 ' Hiding can lead to decreased performance 
-
----
-###Divide and Conquer 
-
-' split up complex problems and reduce
-' or bit off as much as you can possibly chew and wait for the next round
-
----
-###Use a Good Idea Again
-
+' split up complex problems, bounded context DDD
 ' If the abstractions are good use them over again.
+' Http!
 
 ***
-Handling All the Cases
+### Summary 
 
----
-###Separate Normal & Worst Cases 
+' Levels of abstraction are raised
+' hard part is the systems design
 
 
 ***
 -Fin-
 ===
+<br />
+<br />
+@williamberryiii
+https://github.com/WilliamBerryiii/Hints4CSD
