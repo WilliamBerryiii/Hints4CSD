@@ -70,7 +70,7 @@ Gavilan SC - "Laptop"
 
 
 ---
-###Industry Status - Software/Networking
+###Industry Status - Software/Networkings
 <div class="fragment">
 Lotus 1-2-3 - Autocad - MS DOS 2.0 - Word
 </div>
@@ -88,7 +88,7 @@ Road Map:
 Fault Tolerance -> Speed -> Functionality
 </div>
 <div class="fragment">
-APIs! 
+APIs & Microservices
 </div>
 
 ' abstractions have been raised over the years
@@ -106,14 +106,16 @@ APIs!
 Fault Tolerance
 ==========
 
-***
-###End-to-End Error Handling
 Reliability comes with Error Handling<br />
-Reliability is not difficult, retrofitting is<br />
-Trade perfection for disaster mitigation<br />
+Reliability is not difficult, retrofitting reliability is<br />
+Trade perfection for not falling down<br />
 
 ' Reliability is not difficult, retrofitting is.	
 ' Commented at application level which raises the question of who is the user? (APIs, Trading systems, etc.)
+
+***
+###End-to-End Error Handling
+
 ' Error handling between source and destination is about performance 
 ' End to end does lead directly to performance issues.
 
@@ -129,7 +131,7 @@ Captured State
 ' Bravo editor 2 update functions - Replace, Change (store version)
 
 ***
-###Transactions
+###Transactional Orientation
 Make actions atomic or restartable.<br />
 Idempotent  
 
@@ -202,6 +204,12 @@ Speed
 ***
 Functionality
 ========
+Composition<br />
+Sufficiently Small & Fast<br />
+Interface Design<br /> 
+
+' simple, complete, small and fast implementation
+' 
 
 ***
 ###KIS(S)
